@@ -17,7 +17,7 @@ public class WebSocketServerConfig implements WebSocketConfigurer {
 
 
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(new SocketHandler(), "/name");
+		registry.addHandler(new SocketHandler(), "/gateway");
 	}
 
 }

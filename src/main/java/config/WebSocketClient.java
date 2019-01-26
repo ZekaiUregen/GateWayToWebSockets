@@ -12,6 +12,10 @@ import javax.websocket.Session;
 import javax.websocket/**
  * GateWay to WebSockets
  *
+ * WebSocketClient is used for creating a Web socket client,  connecting and sending messages.
+ *
+ * this class is used by testing clients too.
+ *
  * @author Zekai_Uregen
  */.WebSocketContainer;
 

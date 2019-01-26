@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * GateWay to WebSockets
  *
+ * By running as java application embbeded tomcat server starts to run.
+ * And gateway Websocket Server starts to listen clients
+ *
  * @author Zekai_Uregen
  */
 @SpringBootApplication
