@@ -3,11 +3,14 @@
 Clients in public area sends Web Socket Requests with query parameter which including web socket ip in a protected network.
 This application takes this requests as a Web Socket Server and redirect to other web socket servers in local network.
 
+For testing, demo web socket urls which opened to public network are used such as "ws://echo.websocket.org" and "ws://demos.kaazing.com/echo".
+
+Gateway management is provided by SockedHandler.java. 
+
 Client1 send a requests as "ws://localhost:8080/name?websocketip=ws://echo.websocket.org"
-For testing we use demo websockets is always running.Ip of "ws://echo.websocket.org" is a test ip.
-Gateway opens connection and create a WebSocketClient for target web socket("ws://echo.websocket.org").
-For message traffic controlling, put this client session and websocketClient a hashmap.
-When same client sends a message our Gateway Web Socket server find the WebsocketClient of this client session from Hashmap,
+Gateway opens connection for coming request and create a WebSocketClient for target web socket("ws://echo.websocket.org").
+For message traffic controlling,Gateway puts public client session and websocketClient into a hashmap.
+When same client sends a message to Gateway, gateway finds the WebsocketClient of this client session from Hashmap,
 and sends message by using this WebSocketClient.
 
 ## Getting Started
@@ -27,28 +30,15 @@ Install java-1.11.0-openjdk-amd64 <br />
 Install Intellij Idea<br />
 clone https://github.com/ZekaiUregen/GateWayToWebSockets.git
 
-
 ## Running the tests
 
 At first, run the application as a Web socket Server. 
-	-run as java application src/main/java/ config.Application.java.
+	-run as java application "src/main/java/ config.Application.java"
 	 by this, embeded Tomcat server will start tu run and listen client requests. 
 
 After then, send client requests 
-        -run as java application src/test/java Client1.java. Then watch Server console.
-        -run as java application src/test/java Client2.java. Then watch Server console. 
-
-### Break down into end to end tests
-
-By these test,
-       Client1 send a requests as "ws://localhost:8080/name?websocketip=ws://echo.websocket.org"
-       for testing we use demo websockets is always running.Ip of "ws://echo.websocket.org" is a test ip.
-       Gateway opens connection and create a WebSocketClient for target web socket("ws://echo.websocket.org").
-       For message traffic controlling put this client session and websocketClient a hashmap.
-       When same client sends a message our Gateway Web Socket server find the WebsocketClient of this client session from Hashmap,
-       and sends message by using this WebSocketClient.          
-
-
+        -run as java application "src/test/java Client1.java". Then watch Server console.
+        -run as java application "src/test/java Client2.java". Then watch Server console.       
 
 ## Built With
 * [Maven](https://maven.apache.org/) - Dependency Management
