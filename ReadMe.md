@@ -3,7 +3,7 @@
 Clients in public area sends Web Socket Requests with query parameter which including web socket ip in a protected network.
 This application takes this requests as a Web Socket Server and redirect to other web socket servers in local network.
 
-For testing, demo web socket urls which opened to public network are used such as "ws://echo.websocket.org" and "ws://demos.kaazing.com/echo".
+For testing, demo web socket urls which opened to public network are used such as "ws://echo.websocket.org", "ws://demos.kaazing.com/echo".
 
 Gateway management is provided by SockedHandler.java. 
 
