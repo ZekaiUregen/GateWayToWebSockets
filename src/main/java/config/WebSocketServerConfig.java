@@ -18,6 +18,7 @@ public class WebSocketServerConfig implements WebSocketConfigurer {
 
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 		registry.addHandler(new SocketHandler(), "/gateway");
+		registry.addHandler(new SocketHandler(), "/gateway").setAllowedOrigins("*");
 	}
 
 }
