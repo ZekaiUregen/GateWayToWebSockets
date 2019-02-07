@@ -9,7 +9,8 @@ import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
-import javax.websocket/**
+import javax.websocket.WebSocketContainer;
+/**
  * GateWay to WebSockets
  *
  * WebSocketClient is used for creating a Web socket client,  connecting and sending messages.
@@ -17,19 +18,21 @@ import javax.websocket/**
  * this class is used by testing clients too.
  *
  * @author Zekai_Uregen
- */.WebSocketContainer;
+ */
 
 
 @ClientEndpoint
 public class WebSocketClient {
 
-    Session userSession = null;
+    private Session userSession = null;
     private MessageHandler messageHandler;
 
     public WebSocketClient(URI endpointURI) {
+
         try {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             container.connectToServer(this, endpointURI);
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -62,8 +65,13 @@ public class WebSocketClient {
         this.userSession.getAsyncRemote().sendText(message);
     }
 
-    public static interface MessageHandler {
+    public interface MessageHandler {
 
-        public void handleMessage(String message);
+        void handleMessage(String message);
     }
+
+    public Session getUserSession() {
+        return userSession;
+    }
+
 }
